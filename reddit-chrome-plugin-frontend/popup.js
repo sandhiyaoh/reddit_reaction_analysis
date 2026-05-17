@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const outputDiv = document.getElementById("output");
   // The API URL for the Flask backend
-  const API_URL = 'http://ec2-54-157-9-83.compute-1.amazonaws.com:8080';
+  const API_URL = 'http://ec2-54-157-9-83.compute-1.amazonaws.com:8080/';
 
   // Get the current tab's URL
   chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
