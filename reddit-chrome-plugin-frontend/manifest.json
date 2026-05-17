@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Reddit Response Insights",
+  "version": "1.0",
+  "description": "Analyzes Reddit post comments for responses.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting",
+    "http://localhost/*",
+    "https://www.reddit.com/*"
+  ]
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reddit Response Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0d0e15;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f1f1f1;
+      --text-muted: #a0a5b5;
+      --accent-color: #7b61ff;
+      --positive-bg: rgba(46, 204, 113, 0.2);
+      --positive-text: #2ecc71;
+      --neutral-bg: rgba(149, 165, 166, 0.2);
+      --neutral-text: #bdc3c7;
+      --negative-bg: rgba(231, 76, 60, 0.2);
+      --negative-text: #e74c3c;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      padding: 15px;
+      background: linear-gradient(135deg, #0d0e15 0%, #1a1b26 100%);
+      color: var(--text-main);
+      margin: 0;
+      box-sizing: border-box;
+      width: 400px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+      background: -webkit-linear-gradient(45deg, #ff758c, #ff7eb3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--glass-border);
+      padding-bottom: 5px;
+    }
+
+    /* Metrics Grid */
+    .metrics-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .metric {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      border: 1px solid var(--glass-border);
+      transition: background 0.2s;
+    }
+
+    .metric:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .metric-title {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .metric-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-top: 5px;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    .badge-positive {
+      background: var(--positive-bg);
+      color: var(--positive-text);
+    }
+
+    .badge-neutral {
+      background: var(--neutral-bg);
+      color: var(--neutral-text);
+    }
+
+    .badge-negative {
+      background: var(--negative-bg);
+      color: var(--negative-text);
+    }
+
+    /* Comments List */
+    .comment-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    /* Custom Scrollbar */
+    .comment-list::-webkit-scrollbar {
+      width: 6px;
+    }
+    .comment-list::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .comment-list::-webkit-scrollbar-thumb {
+      background: var(--glass-border);
+      border-radius: 3px;
+    }
+
+    .comment-item {
+      padding: 10px;
+      border-bottom: 1px solid var(--glass-border);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .comment-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Images */
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+      border: 1px solid var(--glass-border);
+    }
+
+    p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <h1>Response Insights</h1>
+  <div id="output"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
