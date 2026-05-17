@@ -11,6 +11,7 @@
     "activeTab",
     "scripting",
     "http://localhost/*",
+    "http://ec2-54-157-9-83.compute-1.amazonaws.com/*",
     "https://www.reddit.com/*"
   ]
 }

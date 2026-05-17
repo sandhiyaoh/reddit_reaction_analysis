@@ -6,7 +6,7 @@ import logging
 import os
 
 # Set up MLflow tracking URI
-mlflow.set_tracking_uri("http://ec2-184-72-201-160.compute-1.amazonaws.com:5000/")
+mlflow.set_tracking_uri("http://ec2-54-157-9-83.compute-1.amazonaws.com:8080/")
 
 
 # logging configuration

@@ -53,7 +53,7 @@ def preprocess_comment(comment):
 # Load the model and vectorizer from the model registry and local storage
 # def load_model_and_vectorizer(model_name, model_version, vectorizer_path):
 #     # Set MLflow tracking URI to your server
-#     mlflow.set_tracking_uri("http://ec2-54-167-108-249.compute-1.amazonaws.com:5000/")  # Replace with your MLflow tracking URI
+#     mlflow.set_tracking_uri("http://ec2-54-157-9-83.compute-1.amazonaws.com:8080/")  # Replace with your MLflow tracking URI
 #     client = MlflowClient()
 #     model_uri = f"models:/{model_name}/{model_version}"
 #     model = mlflow.pyfunc.load_model(model_uri)
@@ -326,4 +326,4 @@ def generate_trend_graph():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=False)

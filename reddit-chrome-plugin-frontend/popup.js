@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const outputDiv = document.getElementById("output");
   // The API URL for the Flask backend
-  const API_URL = 'http://localhost:8080/';
+  const API_URL = 'http://ec2-54-157-9-83.compute-1.amazonaws.com:8080';
 
   // Get the current tab's URL
   chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
@@ -131,11 +131,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       const jsonUrl = cleanUrl + '.json';
       const response = await fetch(jsonUrl);
       const data = await response.json();
-      
+
       // The second item in the Reddit JSON array contains the comments
       if (data && data.length > 1 && data[1].data && data[1].data.children) {
         const commentList = data[1].data.children;
-        
+
         // Recursive function to extract comments and replies
         function extractComments(commentsArray) {
           commentsArray.forEach(item => {
@@ -145,15 +145,15 @@ document.addEventListener("DOMContentLoaded", async () => {
               const timestamp = new Date(item.data.created_utc * 1000).toISOString();
               const authorId = item.data.author || 'Unknown';
               comments.push({ text: commentText, timestamp: timestamp, authorId: authorId });
-              
+
               // If there are replies, extract them too
               if (item.data.replies && item.data.replies.data && item.data.replies.data.children) {
-                 extractComments(item.data.replies.data.children);
+                extractComments(item.data.replies.data.children);
               }
             }
           });
         }
-        
+
         extractComments(commentList);
       }
     } catch (error) {
